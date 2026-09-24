@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zoom Clone</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header><h1>Zoom Clone</h1></header>
+
+  <main>
+    <section id="welcome">
+      <form id="join-form">
+        <input id="nickname" placeholder="Nickname" required maxlength="20" />
+        <input id="room" placeholder="Room name" required maxlength="30" />
+        <button>Join</button>
+      </form>
+      <p id="error" class="error"></p>
+      <h3>Open rooms</h3>
+      <ul id="room-list"></ul>
+    </section>
+
+    <section id="call" hidden>
+      <h2 id="room-title"></h2>
+      <div id="videos">
+        <figure class="tile">
+          <video id="local-video" autoplay playsinline muted></video>
+          <figcaption>You</figcaption>
+        </figure>
+      </div>
+      <div class="controls">
+        <button id="mute-btn">Mute</button>
+        <button id="camera-btn">Camera off</button>
+        <select id="camera-select"></select>
+        <button id="leave-btn" class="danger">Leave</button>
+      </div>
+      <div id="chat">
+        <ul id="messages"></ul>
+        <form id="chat-form">
+          <input id="chat-input" placeholder="Message" autocomplete="off" />
+          <button>Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "zoom-clone",
+  "version": "1.0.0",
+  "description": "Real-time video chat (Zoom clone) with WebRTC + Socket.IO signaling",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "mocha test/**/*.test.js --exit",
+    "loadtest": "k6 run loadtest/k6-rooms.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "mocha": "^10.8.2",
+    "socket.io-client": "^4.8.1"
+  }
+}
