@@ -1,7 +1,13 @@
 # Zoom Clone
 
+[![CI](https://github.com/kukkevin1-cmd/zoom-clone/actions/workflows/test.yml/badge.svg)](https://github.com/kukkevin1-cmd/zoom-clone/actions/workflows/test.yml)
+
 Real-time multi-party video chat built with **vanilla JavaScript**, **WebRTC**, and **Socket.IO**.
 Team project (Dec 2022 – Feb 2023), rebuilt in 2026 after the original repo was lost.
+
+![Three-person call with in-room chat](docs/call.png)
+
+<sub>Three browsers in one room (Chromium's fake camera feed used for the demo).</sub>
 
 ## Features
 
@@ -51,6 +57,8 @@ join rooms of 4, and send chat messages every 2 seconds.
 npm start
 k6 run loadtest/k6-rooms.js
 ```
+
+CI runs a short 30-user smoke version of this test (`k6 run -e SMOKE=1 ...`) on every push.
 
 Thresholds: p95 HTTP < 200 ms, p95 room join < 300 ms, p95 WebSocket connect < 500 ms.
 

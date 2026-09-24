@@ -17,12 +17,15 @@ export const options = {
     rooms: {
       executor: "ramping-vus",
       startVUs: 0,
-      stages: [
-        { duration: "30s", target: 100 },
-        { duration: "30s", target: 300 },
-        { duration: "1m", target: 300 }, // hold 300 concurrent users
-        { duration: "20s", target: 0 },
-      ],
+      // SMOKE=1 runs a short 30-user profile (used in CI)
+      stages: __ENV.SMOKE
+        ? [{ duration: "10s", target: 30 }, { duration: "10s", target: 30 }, { duration: "5s", target: 0 }]
+        : [
+            { duration: "30s", target: 100 },
+            { duration: "30s", target: 300 },
+            { duration: "1m", target: 300 }, // hold 300 concurrent users
+            { duration: "20s", target: 0 },
+          ],
     },
   },
   thresholds: {
